@@ -19,13 +19,13 @@ comum não tem placa de vídeo e não roda modelo grande — não pague por isso
 
 ## Números medidos (08/11/2026)
 
-Mesma pergunta, 160 tokens de resposta, medidos com `checa_local.py`. Arquivos em `kit/verificacao/`.
+Mesma pergunta, resposta de até 160 tokens, medidos com `checa_local.py`. Arquivos em `kit/verificacao/`.
 
 | Onde roda | Modelo | Velocidade |
 |---|---|---|
 | Computador com GPU (128 GB de memória unificada), local | Qwen 3.8 27B sem censura | **17,8 tokens/s** |
 | Computador com GPU, local | Qwen 3.8 27B normal | 15,4 tokens/s |
-| **Caminho A:** a VPS chamando a GPU de casa pelo Tailscale | Qwen 3.8 27B sem censura | **20,1 tokens/s** |
+| **Caminho A:** a VPS chamando a GPU de casa pelo Tailscale (porta 11434, receita abaixo) | Qwen 3.8 27B sem censura | **17,6 tokens/s** |
 | **Caminho B:** VPS 4 vCPU / 16 GB, só processador | Qwen 3.5 4B sem censura | 13,6 tokens/s |
 | Caminho B, só processador | Qwen 3.5 4B normal | 12,6 tokens/s |
 | Caminho B, só processador | Qwen 3.5 9B sem censura | 8,5 tokens/s |
@@ -33,8 +33,7 @@ Mesma pergunta, 160 tokens de resposta, medidos com `checa_local.py`. Arquivos e
 
 O que os números dizem:
 
-- **A rede do Tailscale não deixa mais lento.** As diferenças acima são variação entre rodadas, não custo da
-  rede. Um texto de leitura confortável fica em torno de 10 tokens/s.
+- **A rede do Tailscale não deixa mais lento:** 17,8 tokens/s na própria máquina, 17,6 pela rede. Um texto de leitura confortável fica em torno de 10 tokens/s.
 - **A primeira pergunta demora.** Carregar o modelo levou 16 a 47 s na VPS. Depois fica na memória por 5
   minutos (padrão do Ollama) e as respostas saem direto.
 - **Sem censura não é mais lento** que o normal do mesmo tamanho.

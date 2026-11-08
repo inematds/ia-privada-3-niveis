@@ -1,7 +1,7 @@
 {
- "quando": "2026-11-08T15:09:15",
+ "quando": "2026-11-08T15:21:59",
  "maquina": "srv1162715",
- "base_url": "http://100.70.253.64:11435",
+ "base_url": "http://100.70.253.64:11434",
  "porta_11434": {
   "enderecos": [
    "127.0.0.1"
@@ -9,9 +9,9 @@
   "estado": "loopback"
  },
  "modelo": "huihui_ai/Qwen3.8-abliterated:27b",
- "tokens_por_segundo": 20.09,
- "tokens_gerados": 115,
+ "tokens_por_segundo": 17.62,
+ "tokens_gerados": 124,
  "carregar_s": 0.0,
- "total_s": 6.0,
- "resposta": "Ao executar o modelo localmente, os dados permanecem na memória do dispositivo e não são transmitidos através da internet, eliminando o risco de interceptação ou armazenamento por servidores de terceiros.\nIsso garante que os exames médicos sensíveis não saiam do controle do paciente, evitando o compartilhamento involuntário de informações com empresas de nuvem ou provedores de serviços externos.\nConsequentemente, o controle total sobre o acesso e o processamento das informações fica nas mãos do usuário, fortalecendo a segurança e a confidencialidade dos dados de saúde."
+ "total_s": 7.3,
+ "resposta": "Ao processar os dados localmente, o modelo elimina a necessidade de enviar informações sensíveis da saúde para servidores na nuvem ou terceiros, reduzindo os pontos de contato e o risco de vazamentos durante a transmissão. Essa abordagem garante que as imagens e relatórios permaneçam apenas no dispositivo do paciente, minimizando a dependência de infraestruturas externas onde os dados poderiam ser armazenados ou compartilhados sem consentimento explícito. Consequentemente, o controle sobre quem tem acesso às informações fica centralizado no usuário, fortalecendo a segurança e a autonomia do indivíduo em relação ao seu histórico clínico."
 }

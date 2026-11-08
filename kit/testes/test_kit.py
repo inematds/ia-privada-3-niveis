@@ -76,6 +76,16 @@ class TestEscolhe(unittest.TestCase):
         r = self.esc(32, disco=20)
         self.assertTrue(any("Disco livre" in a for a in r["avisos"]))
 
+    def test_disco_sem_espaco_nem_para_um(self):
+        r = self.esc(16, disco=5)
+        self.assertTrue(any("nem um modelo" in a for a in r["avisos"]))
+        self.assertFalse(any("um de cada vez" in a for a in r["avisos"]))
+
+    def test_64gb_pega_27b(self):
+        r = self.esc(64)
+        self.assertEqual(r["normal"]["normal"], "qwen3.8:27b")
+        self.assertEqual(r["rapido"]["normal"], "qwen3.6:35b-a3b")
+
     def test_moe_nunca_e_o_normal(self):
         for mem in (32, 64, 128):
             r = self.esc(mem)

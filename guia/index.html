@@ -155,7 +155,7 @@
   <div class="glow"></div>
   <div class="wrap">
     <div>
-      <span class="chip">Kit gratuito · local · sem censura · 24 h</span>
+      <span class="chip">Kit gratuito · privada · local · 24 h</span>
       <h1>Sua IA, na sua máquina, <span class="amb">ligada o tempo todo</span></h1>
       <p class="lead">O que você pergunta não sai do seu computador, e você usa do celular de qualquer lugar sem abrir porta na internet.</p>
       <div class="cta">
@@ -198,25 +198,27 @@
     <div class="q kit"><b>Local sem censura</b><span>O log de um ataque ao seu servidor com os comandos reais; perguntas médicas ou jurídicas delicadas.</span></div>
   </div>
 <pre><span class="k">python3 kit/scripts/quadrante.py --dado-sensivel sim --recusa nao</span>
-<span class="c"># LOCAL NORMAL — quando: exames, contratos, finanças, logs... — como: nível 2 deste kit</span></pre>
+<span class="c">LOCAL NORMAL
+  quando: Exames, contratos, financas, logs da empresa: nada sai do computador.
+  como:   Nivel 2 deste kit: escolhe_modelo.py -> modelo normal.</span></pre>
 </div></section>
 
 <section id="numeros"><div class="wrap">
   <span class="chip">Números medidos · 08/11/2026</span>
   <h2>Quanto a rede privada custa em velocidade: nada</h2>
-  <p class="sub">Mesma pergunta, 160 tokens (pedaços de palavra) de resposta, medidos com <code>checa_local.py</code>. Leitura confortável fica perto de 10 tokens/s. Os arquivos de cada medição estão em <code>kit/verificacao/</code>.</p>
+  <p class="sub">Mesma pergunta, resposta de até 160 tokens (pedaços de palavra), medidos com <code>checa_local.py</code>. Leitura confortável fica perto de 10 tokens/s. Os arquivos de cada medição estão em <code>kit/verificacao/</code>.</p>
   <div class="bars">
-    <div class="bar"><div class="l">Caminho A · VPS chamando a GPU de casa pelo Tailscale<small>Qwen 3.8 27B sem censura</small></div><div class="t"><i style="width:100%"></i></div><div class="v">20,1 tok/s</div></div>
-    <div class="bar"><div class="l">GPU em casa, local<small>Qwen 3.8 27B sem censura</small></div><div class="t"><i style="width:88.5%"></i></div><div class="v">17,8 tok/s</div></div>
-    <div class="bar"><div class="l">GPU em casa, local<small>Qwen 3.8 27B normal</small></div><div class="t"><i style="width:76.7%"></i></div><div class="v">15,4 tok/s</div></div>
-    <div class="bar"><div class="l">Caminho B · VPS só processador<small>Qwen 3.5 4B sem censura</small></div><div class="t"><i class="cpu" style="width:67.4%"></i></div><div class="v">13,6 tok/s</div></div>
-    <div class="bar"><div class="l">Caminho B pela rede · GPU de casa chamando a VPS<small>Qwen 3.5 4B sem censura</small></div><div class="t"><i class="cpu" style="width:63.5%"></i></div><div class="v">12,8 tok/s</div></div>
-    <div class="bar"><div class="l">Caminho B · VPS só processador<small>Qwen 3.5 4B normal</small></div><div class="t"><i class="cpu" style="width:62.9%"></i></div><div class="v">12,6 tok/s</div></div>
-    <div class="bar"><div class="l">Caminho B · VPS só processador<small>Qwen 3.5 9B sem censura</small></div><div class="t"><i class="cpu" style="width:42.1%"></i></div><div class="v">8,5 tok/s</div></div>
+    <div class="bar"><div class="l">GPU em casa, local<small>Qwen 3.8 27B sem censura</small></div><div class="t"><i style="width:100%"></i></div><div class="v">17,8 tok/s</div></div>
+    <div class="bar"><div class="l">Caminho A · VPS chamando a GPU de casa pelo Tailscale<small>Qwen 3.8 27B sem censura</small></div><div class="t"><i style="width:99%"></i></div><div class="v">17,6 tok/s</div></div>
+    <div class="bar"><div class="l">GPU em casa, local<small>Qwen 3.8 27B normal</small></div><div class="t"><i style="width:86.5%"></i></div><div class="v">15,4 tok/s</div></div>
+    <div class="bar"><div class="l">Caminho B · VPS só processador<small>Qwen 3.5 4B sem censura</small></div><div class="t"><i class="cpu" style="width:76.4%"></i></div><div class="v">13,6 tok/s</div></div>
+    <div class="bar"><div class="l">Caminho B pela rede · GPU de casa chamando a VPS<small>Qwen 3.5 4B sem censura</small></div><div class="t"><i class="cpu" style="width:71.9%"></i></div><div class="v">12,8 tok/s</div></div>
+    <div class="bar"><div class="l">Caminho B · VPS só processador<small>Qwen 3.5 4B normal</small></div><div class="t"><i class="cpu" style="width:70.8%"></i></div><div class="v">12,6 tok/s</div></div>
+    <div class="bar"><div class="l">Caminho B · VPS só processador<small>Qwen 3.5 9B sem censura</small></div><div class="t"><i class="cpu" style="width:47.8%"></i></div><div class="v">8,5 tok/s</div></div>
   </div>
   <div class="legend"><span><i style="background:var(--amb)"></i>modelo 27B na placa de vídeo (128 GB de memória unificada)</span><span><i style="background:var(--mut)"></i>modelo 4B–9B numa VPS de 4 vCPU / 16 GB, sem placa de vídeo</span></div>
   <div class="grid g3" style="margin-top:26px">
-    <div class="card"><h3>📶 A rede não pesa</h3><p>As diferenças entre local e “pelo Tailscale” são variação entre rodadas, não custo da rede.</p></div>
+    <div class="card"><h3>📶 A rede não pesa</h3><p>A GPU de casa respondeu a 17,8 tokens/s na própria máquina e a 17,6 pela rede do Tailscale, na porta e com o comando que este guia ensina.</p></div>
     <div class="card"><h3>⏳ A 1ª pergunta demora</h3><p>Carregar o modelo levou 16 a 47 s na VPS. Depois ele fica 5 minutos na memória e responde direto.</p></div>
     <div class="card"><h3>🔓 Sem censura não é mais lento</h3><p>O sem censura e o normal do mesmo tamanho ficaram na mesma faixa de velocidade.</p></div>
   </div>
@@ -227,10 +229,27 @@
   <h2>O que precisa ter</h2>
   <p class="sub">Tudo gratuito, exceto a VPS do caminho B, se você escolher esse caminho.</p>
   <div class="grid g3">
-    <div class="card"><h3>Python 3.10+</h3><p>Os scripts usam só a biblioteca padrão. Mac e Linux já trazem; no Windows, python.org.</p><pre><span class="k">python3 --version</span></pre></div>
+    <div class="card"><h3>Python 3.10+ e git</h3><p>Os scripts usam só a biblioteca padrão. Mac e Linux já trazem; no Windows, instale de python.org e git-scm.com. Sem git? Baixe o <a href="https://github.com/inematds/ia-privada-3-niveis/archive/refs/heads/main.zip">ZIP do kit</a>.</p><pre><span class="k">python3 --version
+git --version</span></pre></div>
     <div class="card"><h3>Ollama</h3><p>Roda os modelos. Linux pelo comando abaixo; Mac e Windows pelo instalador de ollama.com/download.</p><pre><span class="k">curl -fsSL https://ollama.com/install.sh | sh</span></pre></div>
     <div class="card"><h3>Tailscale (nível 3)</h3><p>Rede privada entre seus aparelhos, grátis para uso pessoal. Instale em casa e no celular, na mesma conta.</p><pre><span class="k">curl -fsSL https://tailscale.com/install.sh | sh</span></pre></div>
   </div>
+</div></section>
+
+<section id="termos"><div class="wrap">
+  <span class="chip">Palavras do guia</span>
+  <h2>Oito termos, uma frase cada</h2>
+  <div class="grid g4" style="margin-top:18px">
+    <div class="card"><h3>Porta 11434</h3><p>A “janela” por onde os programas falam com o Ollama no computador.</p></div>
+    <div class="card"><h3>loopback / 127.0.0.1</h3><p>Só o próprio computador enxerga. É o estado seguro.</p></div>
+    <div class="card"><h3>Tailscale / tailnet</h3><p>Rede privada só entre os seus aparelhos. “tailnet only” = só eles enxergam.</p></div>
+    <div class="card"><h3>funnel</h3><p>Opção do Tailscale que abre para a internet inteira. Não use com o Ollama.</p></div>
+    <div class="card"><h3>VPS / vCPU</h3><p>Computador alugado num datacenter, ligado 24 h. vCPU = núcleo de processador dele.</p></div>
+    <div class="card"><h3>API</h3><p>Usar um modelo que roda no servidor de outra empresa, pagando por uso.</p></div>
+    <div class="card"><h3>Memória unificada</h3><p>Mac (chips M) e algumas máquinas com GPU: a mesma memória serve ao processador e à placa de vídeo.</p></div>
+    <div class="card"><h3>OLLAMA_HOST=0.0.0.0</h3><p>Configuração que abre o Ollama para qualquer rede. O kit acusa como “aberto”.</p></div>
+  </div>
+  <div class="warn"><b>Windows:</b> use <code>python</code> no lugar de <code>python3</code>. Os scripts funcionam, mas a checagem da porta do <code>checa_local.py</code> é só para Linux e Mac. Os caminhos A e B usam comandos de Linux: no Windows, rode-os na máquina Linux (ou na VPS) e use o Windows só como aparelho que acessa.</div>
 </div></section>
 
 <section id="guia"><div class="wrap">
@@ -240,7 +259,7 @@
 
   <div class="step"><div class="b">1</div><div>
     <h3>Baixe o kit e rode os testes</h3>
-    <p>Os testes não usam internet nem o Ollama: só provam que os scripts estão certos.</p>
+    <p>Os testes não usam internet nem o Ollama: só provam que os scripts estão certos. Sem git, baixe o ZIP (pré-requisitos) e abra o terminal dentro da pasta.</p>
 <pre><span class="k">git clone https://github.com/inematds/ia-privada-3-niveis.git
 cd ia-privada-3-niveis
 python3 -m unittest discover -s kit/testes -v</span>  <span class="c"># termina com OK</span></pre>
@@ -250,20 +269,26 @@ python3 -m unittest discover -s kit/testes -v</span>  <span class="c"># termina 
     <h3>Descubra o modelo certo para a sua máquina</h3>
     <p>O script lê a memória (placa de vídeo, memória unificada do Mac ou RAM) e o disco. Mostra dois modelos e o comando para baixar, mas não baixa nada sozinho.</p>
 <pre><span class="k">python3 kit/scripts/escolhe_modelo.py</span>
-<span class="c"># Melhor local (normal):       Qwen 3.5 9B  ->  ollama pull qwen3.5:9b  (6.6 GB)
-# Melhor local (sem censura):  Qwen 3.5 9B  ->  ollama pull huihui_ai/qwen3.5-abliterated:9b  (6.6 GB)</span></pre>
+<span class="c">Memoria: 16.0 GB (RAM / memoria unificada); util para modelo: 14.0 GB
+Disco livre: 80.0 GB
+
+Melhor local (normal):       Qwen 3.5 9B  ->  ollama pull qwen3.5:9b  (6.6 GB)
+  uso: bom equilibrio para 16 GB
+Melhor local (sem censura):  Qwen 3.5 9B  ->  ollama pull huihui_ai/qwen3.5-abliterated:9b  (6.6 GB)</span></pre>
     <div class="tbl"><table>
       <tr><th>Memória</th><th>Normal</th><th>Sem censura</th><th>Download</th></tr>
       <tr><td>8 GB</td><td><code>qwen3.5:4b</code></td><td><code>huihui_ai/qwen3.5-abliterated:4B</code></td><td>3,3 GB</td></tr>
       <tr><td>16 GB</td><td><code>qwen3.5:9b</code></td><td><code>huihui_ai/qwen3.5-abliterated:9b</code></td><td>6,6 GB</td></tr>
-      <tr><td>24–32 GB</td><td><code>qwen3.8:27b</code></td><td><code>huihui_ai/Qwen3.8-abliterated:27b</code></td><td>18 GB</td></tr>
-      <tr><td>128 GB</td><td><code>qwen3.5:122b</code></td><td><code>huihui_ai/qwen3.5-abliterated:122B</code></td><td>81 GB</td></tr>
+      <tr><td>24–64 GB</td><td><code>qwen3.8:27b</code></td><td><code>huihui_ai/Qwen3.8-abliterated:27b</code></td><td>18 GB</td></tr>
+      <tr><td>32 GB ou mais (alternativa rápida)</td><td><code>qwen3.6:35b-a3b</code></td><td><code>huihui_ai/Qwen3.6-abliterated:35b-a3b</code></td><td>23–24 GB</td></tr>
+      <tr><td>96 GB ou mais</td><td><code>qwen3.5:122b</code></td><td><code>huihui_ai/qwen3.5-abliterated:122B</code></td><td>81 GB</td></tr>
+      
     </table></div>
   </div></div>
 
   <div class="step"><div class="b">3</div><div>
     <h3>Baixe e meça</h3>
-    <p>O <code>checa_local.py</code> faz uma pergunta, mede a velocidade, confere a porta e grava o resultado em <code>kit/verificacao/</code>.</p>
+    <p>O <code>checa_local.py</code> faz uma pergunta, mede a velocidade, confere a porta e grava um arquivo novo com o nome do modelo em <code>kit/verificacao/</code>, ao lado das medições deste guia. A linha da porta tem que dizer <code>loopback</code>.</p>
 <pre><span class="k">ollama pull huihui_ai/qwen3.5-abliterated:9b
 python3 kit/scripts/checa_local.py --modelo huihui_ai/qwen3.5-abliterated:9b</span>
 <span class="c"># Porta 11434 nesta maquina: loopback ['127.0.0.1']
@@ -272,7 +297,7 @@ python3 kit/scripts/checa_local.py --modelo huihui_ai/qwen3.5-abliterated:9b</sp
 
   <div class="step"><div class="b">4</div><div>
     <h3>Converse</h3>
-    <p>Para sair, digite <code>/bye</code>. Normal e sem censura ficam baixados lado a lado: trocar é só chamar outro nome.</p>
+    <p>Para sair, digite <code>/bye</code>. No terminal, cole o texto do documento na pergunta. Prefere janela? O app do Ollama (Mac e Windows) conversa com os modelos baixados e aceita arrastar arquivos. Normal e sem censura ficam baixados lado a lado: trocar é só chamar outro nome.</p>
 <pre><span class="k">ollama run huihui_ai/qwen3.5-abliterated:9b</span></pre>
   </div></div>
 
@@ -293,8 +318,8 @@ tailscale serve status</span>   <span class="c"># tem que mostrar "tailnet only"
 <pre><span class="k">curl -fsSL https://ollama.com/install.sh | sh
 ss -ltn | grep 11434</span>          <span class="c"># só 127.0.0.1:11434</span>
 <span class="k">curl -fsSL https://tailscale.com/install.sh | sh
-tailscale up
-tailscale serve --bg --tcp 11434 tcp://127.0.0.1:11434
+tailscale up</span>                  <span class="c"># abra no navegador o link que aparecer e entre na sua conta</span>
+<span class="k">tailscale serve --bg --tcp 11434 tcp://127.0.0.1:11434
 ollama pull huihui_ai/qwen3.5-abliterated:4B</span></pre>
     <p><b>Prova de que ficou fechado:</b> do seu computador, <code>http://&lt;IP público da VPS&gt;:11434</code> tem que falhar, e <code>http://&lt;IP Tailscale da VPS&gt;:11434</code> tem que responder. Na VPS, <code>python3 kit/scripts/checa_local.py --so-porta</code> mostra <code>tailscale</code>.</p>
   </div></div>

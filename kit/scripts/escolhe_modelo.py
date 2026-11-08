@@ -67,7 +67,12 @@ def escolher(catalogo, total_gb, disco_gb, dedicada=False):
     precisa =resultado["normal"]["normal_gb"] + FOLGA_DISCO
     if resultado["sem_censura"]:
         precisa += resultado["sem_censura"]["sem_censura_gb"]
-    if disco_gb < precisa:
+    menor = resultado["normal"]["normal_gb"] + FOLGA_DISCO
+    if disco_gb < menor:
+        resultado["avisos"].append(
+            f"Disco livre ({disco_gb:.0f} GB) nao comporta nem um modelo ({menor:.0f} GB com folga). "
+            "Libere espaco antes de baixar.")
+    elif disco_gb < precisa:
         resultado["avisos"].append(
             f"Disco livre ({disco_gb:.0f} GB) menor que o necessario para os dois "
             f"modelos ({precisa:.0f} GB). Baixe um de cada vez ou libere espaco.")
