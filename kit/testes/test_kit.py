@@ -86,6 +86,19 @@ class TestEscolhe(unittest.TestCase):
         self.assertEqual(r["normal"]["normal"], "qwen3.8:27b")
         self.assertEqual(r["rapido"]["normal"], "qwen3.6:35b-a3b")
 
+    def test_rapido_so_quando_os_dois_cabem(self):
+        self.assertIsNone(self.esc(30)["rapido"])      # sem censura de 24 GB pede 31 GB
+        self.assertEqual(self.esc(31)["rapido"]["normal"], "qwen3.6:35b-a3b")
+
+    def test_checa_local_ollama_fechado_sem_traceback(self):
+        import io
+        from contextlib import redirect_stdout
+        buf = io.StringIO()
+        with redirect_stdout(buf):
+            rc = checa_local.main(["--base-url", "http://127.0.0.1:1", "--modelo", "x"])
+        self.assertEqual(rc, 3)
+        self.assertIn("nao respondeu", buf.getvalue())
+
     def test_moe_nunca_e_o_normal(self):
         for mem in (32, 64, 128):
             r = self.esc(mem)

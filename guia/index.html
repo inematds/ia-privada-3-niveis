@@ -206,7 +206,7 @@
 <section id="numeros"><div class="wrap">
   <span class="chip">Números medidos · 08/11/2026</span>
   <h2>Quanto a rede privada custa em velocidade: nada</h2>
-  <p class="sub">Máquina de casa: NVIDIA DGX Spark (128 GB de memória unificada), não um notebook comum. Para um notebook sem placa de vídeo, a referência mais próxima são as barras cinzas da VPS. Mesma pergunta, resposta de até 160 tokens (pedaços de palavra), medidos com <code>checa_local.py</code>. Leitura confortável fica perto de 10 tokens/s. Os arquivos de cada medição estão em <code>kit/verificacao/</code>.</p>
+  <p class="sub">Máquina de casa: NVIDIA DGX Spark (128 GB de memória unificada), não um notebook comum. Ali o seletor indicaria o 122B; medimos o 27B porque é o modelo que cabe em máquinas de 24 a 99 GB, as mais comuns. Para um notebook sem placa de vídeo, a referência mais próxima são as barras cinzas da VPS. Mesma pergunta, resposta de até 160 tokens (pedaços de palavra), medidos com <code>checa_local.py</code>. Leitura confortável fica perto de 10 tokens/s. Os arquivos de cada medição estão em <code>kit/verificacao/</code>.</p>
   <div class="bars">
     <div class="bar"><div class="l">GPU em casa, local<small>Qwen 3.8 27B sem censura</small></div><div class="t"><i style="width:100%"></i></div><div class="v">17,8 tok/s</div></div>
     <div class="bar"><div class="l">Caminho A · VPS chamando a GPU de casa pelo Tailscale<small>Qwen 3.8 27B sem censura</small></div><div class="t"><i style="width:99%"></i></div><div class="v">17,6 tok/s</div></div>
@@ -251,6 +251,8 @@ git --version</span></pre></div>
     <div class="card"><h3>abliterated / huihui_ai</h3><p>“Abliterated” = versão sem censura de um modelo aberto. huihui_ai é quem publica essas versões na biblioteca do Ollama.</p></div>
     <div class="card"><h3>4B, 9B, 27B</h3><p>Bilhões de parâmetros: o tamanho do modelo. Maior responde melhor e pede mais memória.</p></div>
     <div class="card"><h3>35b-a3b (rápido)</h3><p>Modelo grande que usa só 3B por palavra (“MoE”): ocupa memória de grande e responde quase na velocidade de um pequeno.</p></div>
+    <div class="card"><h3>Qwen</h3><p>Família de modelos abertos da Alibaba. O kit usa as versões 3.5, 3.6 e 3.8.</p></div>
+    <div class="card"><h3>Ubuntu / ssh / root</h3><p>Ubuntu = o Linux da VPS. ssh = entrar no terminal dela pelo seu (o IP vem no painel do provedor). root = o administrador da VPS.</p></div>
     <div class="card"><h3>GPU / sudo</h3><p>GPU = placa de vídeo. sudo = rodar um comando como administrador no Linux/Mac (pede a sua senha).</p></div>
   </div>
   <div class="warn"><b>Windows:</b> use <code>python</code> no lugar de <code>python3</code>. Os scripts funcionam, mas a checagem da porta do <code>checa_local.py</code> é só para Linux e Mac. Os caminhos A e B usam comandos de Linux: no Windows, rode-os na máquina Linux (ou na VPS) e use o Windows só como aparelho que acessa.</div>
@@ -285,7 +287,7 @@ Melhor local (sem censura):  Qwen 3.5 9B  ->  ollama pull huihui_ai/qwen3.5-abli
       <tr><td>6–9 GB</td><td><code>qwen3.5:4b</code></td><td><code>huihui_ai/qwen3.5-abliterated:4B</code></td><td>3,3 GB</td></tr>
       <tr><td>10–23 GB</td><td><code>qwen3.5:9b</code></td><td><code>huihui_ai/qwen3.5-abliterated:9b</code></td><td>6,6 GB</td></tr>
       <tr><td>24–99 GB</td><td><code>qwen3.8:27b</code></td><td><code>huihui_ai/Qwen3.8-abliterated:27b</code></td><td>18 GB</td></tr>
-      <tr><td>30 GB ou mais (alternativa rápida)</td><td><code>qwen3.6:35b-a3b</code></td><td><code>huihui_ai/Qwen3.6-abliterated:35b-a3b</code></td><td>23–24 GB</td></tr>
+      <tr><td>31 GB ou mais (alternativa rápida)</td><td><code>qwen3.6:35b-a3b</code></td><td><code>huihui_ai/Qwen3.6-abliterated:35b-a3b</code></td><td>23–24 GB</td></tr>
       <tr><td>100 GB ou mais</td><td><code>qwen3.5:122b</code></td><td><code>huihui_ai/qwen3.5-abliterated:122B</code></td><td>81 GB</td></tr>
       
     </table></div>
@@ -293,7 +295,7 @@ Melhor local (sem censura):  Qwen 3.5 9B  ->  ollama pull huihui_ai/qwen3.5-abli
 
   <div class="step"><div class="b">3</div><div>
     <h3>Baixe e meça</h3>
-    <p>O <code>checa_local.py</code> faz uma pergunta, mede a velocidade, confere a porta e grava um arquivo novo com o nome do modelo em <code>kit/verificacao/</code>, ao lado das medições deste guia. A linha da porta tem que dizer <code>loopback</code>.</p>
+    <p>O <code>checa_local.py</code> faz uma pergunta, mede a velocidade, confere a porta e grava um arquivo novo com o nome do modelo em <code>kit/verificacao/</code>, ao lado das medições deste guia. A linha da porta tem que dizer <code>loopback</code> (no Windows ela não aparece; é normal). Se aparecer “o Ollama não respondeu”, abra o app do Ollama ou rode <code>ollama serve</code>.</p>
 <pre><span class="k">ollama pull huihui_ai/qwen3.5-abliterated:9b
 python3 kit/scripts/checa_local.py --modelo huihui_ai/qwen3.5-abliterated:9b</span>
 <span class="c"># Porta 11434 nesta maquina: loopback ['127.0.0.1']
@@ -304,7 +306,7 @@ python3 kit/scripts/checa_local.py --modelo huihui_ai/qwen3.5-abliterated:9b</sp
     <h3>Converse</h3>
     <p>Para sair, digite <code>/bye</code>. No terminal, cole o texto do documento na pergunta. Prefere janela? O app do Ollama (Mac e Windows) conversa com os modelos baixados e aceita arrastar arquivos. Normal e sem censura ficam baixados lado a lado: trocar é só chamar outro nome.</p>
 <pre><span class="k">ollama run huihui_ai/qwen3.5-abliterated:9b</span></pre>
-    <p>Documento em PDF: transforme em texto e mande junto com o pedido. O <code>pdftotext</code> vem no pacote <code>poppler-utils</code> (Linux) ou <code>brew install poppler</code> (Mac). Documento muito longo (dezenas de páginas) pode passar do limite de texto do modelo: divida em partes.</p>
+    <p>Documento em PDF: transforme em texto e mande junto com o pedido. O <code>pdftotext</code> vem no pacote <code>poppler-utils</code> (Linux) ou <code>brew install poppler</code> (Mac). No Windows, o caminho mais fácil é o app do Ollama: escolha o modelo e arraste o arquivo para a conversa; tudo roda no seu computador. Documento muito longo (dezenas de páginas) pode passar do limite de texto do modelo: divida em partes.</p>
 <pre><span class="k">pdftotext contrato.pdf contrato.txt
 cat contrato.txt | ollama run huihui_ai/qwen3.5-abliterated:9b "Resuma em 2 linhas: valor, vencimento e multa."</span></pre>
   </div></div>

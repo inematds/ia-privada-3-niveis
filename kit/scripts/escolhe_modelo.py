@@ -48,12 +48,13 @@ def escolher(catalogo, total_gb, disco_gb, dedicada=False):
                  "disco_livre_gb": disco_gb, "dedicada": dedicada,
                  "normal": None, "sem_censura": None, "rapido": None, "avisos": []}
     for m in catalogo:
-        if cabe(m["normal_gb"], util):
-            if m.get("moe"):
+        if m.get("moe"):
+            if cabe(max(m["normal_gb"], m["sem_censura_gb"]), util):
                 resultado["rapido"] = m
-            else:
-                resultado["normal"] = m
-        if cabe(m["sem_censura_gb"], util) and not m.get("moe"):
+            continue
+        if cabe(m["normal_gb"], util):
+            resultado["normal"] = m
+        if cabe(m["sem_censura_gb"], util):
             resultado["sem_censura"] = m
     if resultado["normal"] is None:
         resultado["avisos"].append(

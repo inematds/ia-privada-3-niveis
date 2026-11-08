@@ -19,6 +19,7 @@ import platform
 import shutil
 import subprocess
 import sys
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -108,7 +109,18 @@ def main(argv=None):
     if not a.modelo:
         p.error("informe --modelo")
 
-    r = perguntar(a.base_url, a.modelo, max_tokens=a.max_tokens)
+    try:
+        r = perguntar(a.base_url, a.modelo, max_tokens=a.max_tokens)
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            print(f"ERRO: o modelo '{a.modelo}' nao esta baixado nesse Ollama. Rode: ollama pull {a.modelo}")
+        else:
+            print(f"ERRO: o Ollama respondeu {e.code} em {a.base_url}.")
+        return 3
+    except (urllib.error.URLError, OSError) as e:
+        print(f"ERRO: o Ollama nao respondeu em {a.base_url} ({getattr(e, 'reason', e)}).")
+        print("Abra o app do Ollama (Mac/Windows) ou rode 'ollama serve' (Linux); pelo Tailscale, confira o endereco 100.x e o 'tailscale serve status'.")
+        return 3
     tps = tokens_por_segundo(r)
     resultado.update({"modelo": a.modelo, "tokens_por_segundo": tps,
                       "tokens_gerados": r.get("eval_count"),
