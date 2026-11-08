@@ -56,8 +56,9 @@ Na máquina de casa (com Ollama e o modelo do nível 2):
    abre para a internet inteira.
 5. Pegue o endereço: `tailscale ip -4` (algo como `100.x.y.z`).
 
-No celular ou no notebook: instale o Tailscale, entre na **mesma conta** e use `http://100.x.y.z:11434` em
-qualquer app que fale com o Ollama. Para medir:
+No celular: instale o app do Tailscale, entre na **mesma conta** e instale um app que conversa com o Ollama —
+[Ollama App](https://github.com/JHubi1/ollama-app) (Android) ou [Enchanted](https://github.com/gluonfield/enchanted)
+(iPhone) — com o endereço `http://100.x.y.z:11434`. No notebook, o mesmo endereço serve para o `checa_local.py`. Para medir:
 
 ```bash
 python3 kit/scripts/checa_local.py --base-url http://100.x.y.z:11434 --modelo huihui_ai/Qwen3.8-abliterated:27b --nome casa-pelo-tailscale
@@ -67,7 +68,8 @@ Para desligar: `tailscale serve --tcp 11434 off`.
 
 ## Caminho B — passo a passo
 
-Numa VPS Ubuntu com pelo menos 8 GB de RAM (a medição usou 4 vCPU e 16 GB):
+Numa VPS Ubuntu com pelo menos 8 GB de RAM (a medição usou 4 vCPU e 16 GB), no terminal dela (`ssh root@<IP>` ou o
+terminal web do provedor; sem root, ponha `sudo` antes dos comandos `tailscale`):
 
 ```bash
 curl -fsSL https://ollama.com/install.sh | sh
@@ -81,6 +83,7 @@ curl -fsSL https://tailscale.com/install.sh | sh
 tailscale up
 tailscale serve --bg --tcp 11434 tcp://127.0.0.1:11434
 ollama pull huihui_ai/qwen3.5-abliterated:4B
+git clone https://github.com/inematds/ia-privada-3-niveis.git
 ```
 
 **Prova de que ficou fechado:** do seu computador, `http://<IP público da VPS>:11434` tem que **falhar**

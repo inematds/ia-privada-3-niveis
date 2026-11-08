@@ -187,7 +187,7 @@
 <section id="quadrante"><div class="wrap">
   <span class="chip">Quadrante</span>
   <h2>Duas perguntas decidem onde a IA roda</h2>
-  <p class="sub">O dado pode sair da sua máquina? O modelo normal recusa o que você precisa fazer? Só desça para “sem censura” quando o normal recusar uma tarefa legítima.</p>
+  <p class="sub">O dado NÃO pode sair da sua máquina? O modelo normal recusa o que você precisa fazer? No script, <code>--dado-sensivel sim</code> quer dizer “não pode sair”. Só desça para “sem censura” quando o normal recusar uma tarefa legítima.</p>
   <div class="quad">
     <div class="h c"></div><div class="h c">O modelo normal resolve</div><div class="h c">O modelo normal recusa</div>
     <div class="h r">O dado pode sair</div>
@@ -206,7 +206,7 @@
 <section id="numeros"><div class="wrap">
   <span class="chip">Números medidos · 08/11/2026</span>
   <h2>Quanto a rede privada custa em velocidade: nada</h2>
-  <p class="sub">Mesma pergunta, resposta de até 160 tokens (pedaços de palavra), medidos com <code>checa_local.py</code>. Leitura confortável fica perto de 10 tokens/s. Os arquivos de cada medição estão em <code>kit/verificacao/</code>.</p>
+  <p class="sub">Máquina de casa: NVIDIA DGX Spark (128 GB de memória unificada), não um notebook comum. Para um notebook sem placa de vídeo, a referência mais próxima são as barras cinzas da VPS. Mesma pergunta, resposta de até 160 tokens (pedaços de palavra), medidos com <code>checa_local.py</code>. Leitura confortável fica perto de 10 tokens/s. Os arquivos de cada medição estão em <code>kit/verificacao/</code>.</p>
   <div class="bars">
     <div class="bar"><div class="l">GPU em casa, local<small>Qwen 3.8 27B sem censura</small></div><div class="t"><i style="width:100%"></i></div><div class="v">17,8 tok/s</div></div>
     <div class="bar"><div class="l">Caminho A · VPS chamando a GPU de casa pelo Tailscale<small>Qwen 3.8 27B sem censura</small></div><div class="t"><i style="width:99%"></i></div><div class="v">17,6 tok/s</div></div>
@@ -238,7 +238,7 @@ git --version</span></pre></div>
 
 <section id="termos"><div class="wrap">
   <span class="chip">Palavras do guia</span>
-  <h2>Oito termos, uma frase cada</h2>
+  <h2>Os termos do guia, uma frase cada</h2>
   <div class="grid g4" style="margin-top:18px">
     <div class="card"><h3>Porta 11434</h3><p>A “janela” por onde os programas falam com o Ollama no computador.</p></div>
     <div class="card"><h3>loopback / 127.0.0.1</h3><p>Só o próprio computador enxerga. É o estado seguro.</p></div>
@@ -248,6 +248,10 @@ git --version</span></pre></div>
     <div class="card"><h3>API</h3><p>Usar um modelo que roda no servidor de outra empresa, pagando por uso.</p></div>
     <div class="card"><h3>Memória unificada</h3><p>Mac (chips M) e algumas máquinas com GPU: a mesma memória serve ao processador e à placa de vídeo.</p></div>
     <div class="card"><h3>OLLAMA_HOST=0.0.0.0</h3><p>Configuração que abre o Ollama para qualquer rede. O kit acusa como “aberto”.</p></div>
+    <div class="card"><h3>abliterated / huihui_ai</h3><p>“Abliterated” = versão sem censura de um modelo aberto. huihui_ai é quem publica essas versões na biblioteca do Ollama.</p></div>
+    <div class="card"><h3>4B, 9B, 27B</h3><p>Bilhões de parâmetros: o tamanho do modelo. Maior responde melhor e pede mais memória.</p></div>
+    <div class="card"><h3>35b-a3b (rápido)</h3><p>Modelo grande que usa só 3B por palavra (“MoE”): ocupa memória de grande e responde quase na velocidade de um pequeno.</p></div>
+    <div class="card"><h3>GPU / sudo</h3><p>GPU = placa de vídeo. sudo = rodar um comando como administrador no Linux/Mac (pede a sua senha).</p></div>
   </div>
   <div class="warn"><b>Windows:</b> use <code>python</code> no lugar de <code>python3</code>. Os scripts funcionam, mas a checagem da porta do <code>checa_local.py</code> é só para Linux e Mac. Os caminhos A e B usam comandos de Linux: no Windows, rode-os na máquina Linux (ou na VPS) e use o Windows só como aparelho que acessa.</div>
 </div></section>
@@ -267,7 +271,7 @@ python3 -m unittest discover -s kit/testes -v</span>  <span class="c"># termina 
 
   <div class="step"><div class="b">2</div><div>
     <h3>Descubra o modelo certo para a sua máquina</h3>
-    <p>O script lê a memória (placa de vídeo, memória unificada do Mac ou RAM) e o disco. Mostra dois modelos e o comando para baixar, mas não baixa nada sozinho.</p>
+    <p>O script lê a memória (placa de vídeo, memória unificada do Mac ou RAM) e o disco. Mostra dois modelos e o comando para baixar, mas não baixa nada sozinho.</p><p class="nota-saida"></p>
 <pre><span class="k">python3 kit/scripts/escolhe_modelo.py</span>
 <span class="c">Memoria: 16.0 GB (RAM / memoria unificada); util para modelo: 14.0 GB
 Disco livre: 80.0 GB
@@ -277,11 +281,12 @@ Melhor local (normal):       Qwen 3.5 9B  ->  ollama pull qwen3.5:9b  (6.6 GB)
 Melhor local (sem censura):  Qwen 3.5 9B  ->  ollama pull huihui_ai/qwen3.5-abliterated:9b  (6.6 GB)</span></pre>
     <div class="tbl"><table>
       <tr><th>Memória</th><th>Normal</th><th>Sem censura</th><th>Download</th></tr>
-      <tr><td>8 GB</td><td><code>qwen3.5:4b</code></td><td><code>huihui_ai/qwen3.5-abliterated:4B</code></td><td>3,3 GB</td></tr>
-      <tr><td>16 GB</td><td><code>qwen3.5:9b</code></td><td><code>huihui_ai/qwen3.5-abliterated:9b</code></td><td>6,6 GB</td></tr>
-      <tr><td>24–64 GB</td><td><code>qwen3.8:27b</code></td><td><code>huihui_ai/Qwen3.8-abliterated:27b</code></td><td>18 GB</td></tr>
-      <tr><td>32 GB ou mais (alternativa rápida)</td><td><code>qwen3.6:35b-a3b</code></td><td><code>huihui_ai/Qwen3.6-abliterated:35b-a3b</code></td><td>23–24 GB</td></tr>
-      <tr><td>96 GB ou mais</td><td><code>qwen3.5:122b</code></td><td><code>huihui_ai/qwen3.5-abliterated:122B</code></td><td>81 GB</td></tr>
+      <tr><td>4–5 GB (só teste)</td><td><code>qwen3.5:0.8b</code> / <code>qwen3.5:2b-q4_K_M</code></td><td><code>huihui_ai/qwen3.5-abliterated:0.8B</code> / <code>:2B</code></td><td>1–1,9 GB</td></tr>
+      <tr><td>6–9 GB</td><td><code>qwen3.5:4b</code></td><td><code>huihui_ai/qwen3.5-abliterated:4B</code></td><td>3,3 GB</td></tr>
+      <tr><td>10–23 GB</td><td><code>qwen3.5:9b</code></td><td><code>huihui_ai/qwen3.5-abliterated:9b</code></td><td>6,6 GB</td></tr>
+      <tr><td>24–99 GB</td><td><code>qwen3.8:27b</code></td><td><code>huihui_ai/Qwen3.8-abliterated:27b</code></td><td>18 GB</td></tr>
+      <tr><td>30 GB ou mais (alternativa rápida)</td><td><code>qwen3.6:35b-a3b</code></td><td><code>huihui_ai/Qwen3.6-abliterated:35b-a3b</code></td><td>23–24 GB</td></tr>
+      <tr><td>100 GB ou mais</td><td><code>qwen3.5:122b</code></td><td><code>huihui_ai/qwen3.5-abliterated:122B</code></td><td>81 GB</td></tr>
       
     </table></div>
   </div></div>
@@ -299,29 +304,36 @@ python3 kit/scripts/checa_local.py --modelo huihui_ai/qwen3.5-abliterated:9b</sp
     <h3>Converse</h3>
     <p>Para sair, digite <code>/bye</code>. No terminal, cole o texto do documento na pergunta. Prefere janela? O app do Ollama (Mac e Windows) conversa com os modelos baixados e aceita arrastar arquivos. Normal e sem censura ficam baixados lado a lado: trocar é só chamar outro nome.</p>
 <pre><span class="k">ollama run huihui_ai/qwen3.5-abliterated:9b</span></pre>
+    <p>Documento em PDF: transforme em texto e mande junto com o pedido. O <code>pdftotext</code> vem no pacote <code>poppler-utils</code> (Linux) ou <code>brew install poppler</code> (Mac). Documento muito longo (dezenas de páginas) pode passar do limite de texto do modelo: divida em partes.</p>
+<pre><span class="k">pdftotext contrato.pdf contrato.txt
+cat contrato.txt | ollama run huihui_ai/qwen3.5-abliterated:9b "Resuma em 2 linhas: valor, vencimento e multa."</span></pre>
   </div></div>
 
   <div class="step"><div class="b">5</div><div>
     <h3>Caminho A: use a placa de vídeo de casa de qualquer lugar</h3>
-    <p>Com o Tailscale logado, publique o Ollama <b>só</b> na sua rede privada. O status tem que dizer “tailnet only”. Se aparecer “Access denied”, rode uma vez <code>sudo tailscale set --operator=$USER</code>.</p>
-<pre><span class="k">tailscale serve --bg --tcp 11434 tcp://127.0.0.1:11434
+    <p>Primeiro entre na sua conta do Tailscale nesta máquina: no Linux, <code>sudo tailscale up</code> mostra um link para abrir no navegador; no Mac e no Windows, o app pede o login ao abrir. Depois publique o Ollama <b>só</b> na sua rede privada. O status tem que dizer “tailnet only”. Se aparecer “Access denied”, rode uma vez <code>sudo tailscale set --operator=$USER</code>.</p>
+<pre><span class="k">sudo tailscale up
+tailscale serve --bg --tcp 11434 tcp://127.0.0.1:11434
 tailscale serve status</span>   <span class="c"># tem que mostrar "tailnet only"</span>
 <span class="k">tailscale ip -4</span>          <span class="c"># o endereço 100.x.y.z para usar no celular</span></pre>
-    <p>No celular ou notebook (Tailscale na mesma conta), use <code>http://100.x.y.z:11434</code> em qualquer app que fale com o Ollama. Para medir de lá:</p>
+    <p>No celular, instale o app do Tailscale e entre na mesma conta. Depois instale um app que conversa com o Ollama, como o <a href="https://github.com/JHubi1/ollama-app" target="_blank" rel="noopener">Ollama App</a> (Android) ou o <a href="https://github.com/gluonfield/enchanted" target="_blank" rel="noopener">Enchanted</a> (iPhone), e informe como endereço do servidor <code>http://100.x.y.z:11434</code>. No notebook, o mesmo endereço serve para o <code>checa_local.py</code>:</p>
 <pre><span class="k">python3 kit/scripts/checa_local.py --base-url http://100.x.y.z:11434 --modelo huihui_ai/Qwen3.8-abliterated:27b --nome casa-pelo-tailscale</span></pre>
     <p>Para desligar: <code>tailscale serve --tcp 11434 off</code>.</p>
   </div></div>
 
   <div class="step"><div class="b">6</div><div>
     <h3>Caminho B: um modelo pequeno 24 h numa VPS</h3>
-    <p>Para quem não deixa computador ligado. A VPS comum não tem placa de vídeo: até 9B, na velocidade do gráfico acima. Numa VPS Ubuntu com 8 GB ou mais:</p>
+    <p>Para quem não deixa computador ligado. A VPS comum não tem placa de vídeo: até 9B, na velocidade do gráfico acima. Contrate uma VPS Ubuntu com 8 GB ou mais e abra o terminal dela (pelo <code>ssh root@&lt;IP&gt;</code> ou pelo terminal web do provedor). Como root, rode:</p>
 <pre><span class="k">curl -fsSL https://ollama.com/install.sh | sh
 ss -ltn | grep 11434</span>          <span class="c"># só 127.0.0.1:11434</span>
 <span class="k">curl -fsSL https://tailscale.com/install.sh | sh
 tailscale up</span>                  <span class="c"># abra no navegador o link que aparecer e entre na sua conta</span>
 <span class="k">tailscale serve --bg --tcp 11434 tcp://127.0.0.1:11434
-ollama pull huihui_ai/qwen3.5-abliterated:4B</span></pre>
-    <p><b>Prova de que ficou fechado:</b> do seu computador, <code>http://&lt;IP público da VPS&gt;:11434</code> tem que falhar, e <code>http://&lt;IP Tailscale da VPS&gt;:11434</code> tem que responder. Na VPS, <code>python3 kit/scripts/checa_local.py --so-porta</code> mostra <code>tailscale</code>.</p>
+ollama pull huihui_ai/qwen3.5-abliterated:4B
+git clone https://github.com/inematds/ia-privada-3-niveis.git
+cd ia-privada-3-niveis
+python3 kit/scripts/checa_local.py --so-porta</span></pre>
+    <p><b>Prova de que ficou fechado:</b> do seu computador, <code>http://&lt;IP público da VPS&gt;:11434</code> tem que falhar, e <code>http://&lt;IP Tailscale da VPS&gt;:11434</code> tem que responder. Com o <code>tailscale serve</code> ligado, o <code>--so-porta</code> na VPS mostra <code>tailscale</code>; desligado, mostra <code>loopback</code>. Os dois são seguros; <code>aberto</code> nunca. Se você não entrar como root, ponha <code>sudo</code> antes de <code>tailscale up</code> e <code>tailscale serve</code>.</p>
   </div></div>
 
   <div class="step"><div class="b">7</div><div>

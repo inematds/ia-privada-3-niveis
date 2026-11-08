@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>IA privada en 3 niveles — tu IA, en tu máquina, encendida todo el tiempo</title>
-<meta name="description" content="Kit gratuito de INEMA: elige el modelo de IA adecuado para tu máquina (normal o sin censura), ejecútalo todo localmente y úsalo desde el celular con Tailscale, sin abrir puertos en internet. Con velocidades medidas.">
+<title>IA privada en 3 niveles — tu IA, en tu equipo, conectada todo el tiempo</title>
+<meta name="description" content="Kit gratuito de INEMA: elige el modelo de IA adecuado para tu equipo (normal o sin censura), ejecútalo localmente y úsalo desde el celular con Tailscale, sin abrir puertos en internet. Con velocidades medidas.">
 <link rel="alternate" hreflang="pt-BR" href="https://inematds.github.io/ia-privada-3-niveis/guia/">
 <link rel="alternate" hreflang="en" href="https://inematds.github.io/ia-privada-3-niveis/guia/en/">
 <link rel="alternate" hreflang="es" href="https://inematds.github.io/ia-privada-3-niveis/guia/es/">
@@ -142,7 +142,7 @@
   <div class="links">
     <a class="sec" href="#oque">Qué es</a>
     <a class="sec" href="#quadrante">Cuadrante</a>
-    <a class="sec" href="#numeros">Cifras</a>
+    <a class="sec" href="#numeros">Datos</a>
     <a class="sec" href="#guia">Guía de uso</a>
     <a class="sec" href="#seguranca">Seguridad</a>
     <span class="lang"><a href="../">PT</a><a href="../en/">EN</a><a class="on" href="./">ES</a></span>
@@ -156,46 +156,46 @@
   <div class="wrap">
     <div>
       <span class="chip">Kit gratuito · privada · local · 24 h</span>
-      <h1>Tu IA, en tu máquina, <span class="amb">encendida todo el tiempo</span></h1>
-      <p class="lead">Lo que preguntas no sale de tu computadora, y puedes usarla desde el celular desde cualquier lugar sin abrir puertos en internet.</p>
+      <h1>Tu IA, en tu equipo, <span class="amb">conectada todo el tiempo</span></h1>
+      <p class="lead">Lo que preguntas no sale de tu computadora y puedes usarla desde tu celular desde cualquier lugar, sin abrir puertos en internet.</p>
       <div class="cta">
         <a class="btn" href="#guia">Empezar la guía</a>
         <a class="btn ghost" href="https://github.com/inematds/ia-privada-3-niveis" target="_blank" rel="noopener">Ver en GitHub</a>
       </div>
     </div>
-    <figure><img src="../assets/banner-es.jpg" alt="Banner: Tu IA privada — local, sin censura y encendida las 24 h"></figure>
+    <figure><img src="../assets/banner-es.jpg" alt="Banner: Tu IA privada — local, sin censura y conectada las 24 h"></figure>
   </div>
 </header>
 
 <section id="resumo" class="resumo"><div class="wrap">
   <span class="chip">En resumen</span>
-  <p>Este es un kit gratuito para ejecutar un modelo de IA abierto en tu propia computadora, sin enviar tus datos a ninguna empresa. Sirve para quienes manejan información sensible (exámenes, contratos, finanzas, registros) o necesitan un modelo que no rechace tareas legítimas. Un script analiza tu máquina y recomienda el mejor modelo normal y el mejor sin censura que caben en ella. Otro mide la velocidad y comprueba que el puerto esté cerrado. Para usarlo desde cualquier lugar, el kit conecta tus dispositivos por una red privada (Tailscale). Necesitas Python 3.10+, Ollama y, para usarlo fuera de casa, una cuenta gratuita de Tailscale.</p>
+  <p>Este es un kit gratuito para ejecutar un modelo de IA abierto en tu propia computadora, sin enviar tus datos a ninguna empresa. Está pensado para quienes trabajan con información sensible (exámenes, contratos, finanzas, registros) o necesitan un modelo que no rechace tareas legítimas. Un script revisa tu equipo e indica el mejor modelo normal y el mejor sin censura que caben en él. Otro mide la velocidad y comprueba que el puerto esté cerrado. Para usarlo desde cualquier lugar, el kit conecta tus dispositivos por una red privada (Tailscale). Necesitas Python 3.10+, Ollama y, para usarlo fuera de casa, una cuenta gratuita de Tailscale.</p>
 </div></section>
 
 <section id="oque"><div class="wrap">
   <span class="chip">Qué es</span>
   <h2>Tres niveles, del más sencillo al más libre</h2>
-  <p class="sub">No necesitas ningún “sistema operativo de agentes” de pago. Son tres componentes abiertos y algunos scripts que demuestran que todo funciona.</p>
+  <p class="sub">No necesitas ningún “sistema operativo de agentes” de pago. Son tres componentes abiertos y algunos scripts que comprueban que todo funciona.</p>
   <figure style="margin:0 0 26px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000"><img src="../assets/banner-grade-es.jpg" alt="Los seis bloques del kit: cuadrante, modelo adecuado, local, Tailscale, VPS sin GPU y voz" loading="lazy" style="width:100%;display:block"></figure>
   <div class="grid g3">
-    <div class="card"><h3>☁️ 1 · Por API</h3><p>Un modelo sin censura en el servidor de otra empresa. Rápido de empezar, pero la consulta sale de tu máquina. Está en el kit complementario <a href="https://inematds.github.io/ia-sem-censura-defensiva/guia/es/" target="_blank" rel="noopener">IA sin censura, de la manera correcta</a>.</p></div>
-    <div class="card"><h3>💻 2 · Local</h3><p><b>Ollama</b> (programa gratuito que ejecuta modelos en la computadora) con el modelo que <code>escolhe_modelo.py</code> recomiende para tu memoria. Nada sale de la máquina.</p></div>
-    <div class="card"><h3>📱 3 · Siempre encendida</h3><p><b>Tailscale</b> crea una red privada entre tus dispositivos: el celular usa la tarjeta gráfica de casa (camino A) o un modelo pequeño en una VPS (camino B).</p></div>
+    <div class="card"><h3>☁️ 1 · Por API</h3><p>Un modelo sin censura en el servidor de otra empresa. Rápido de empezar, pero la solicitud sale de tu equipo. Está en el kit hermano <a href="https://inematds.github.io/ia-sem-censura-defensiva/guia/es/" target="_blank" rel="noopener">IA sin censura, de la forma correcta</a>.</p></div>
+    <div class="card"><h3>💻 2 · Local</h3><p><b>Ollama</b> (programa gratuito que ejecuta modelos en la computadora) con el modelo que <code>escolhe_modelo.py</code> recomiende para tu memoria. Nada sale del equipo.</p></div>
+    <div class="card"><h3>📱 3 · Siempre conectada</h3><p><b>Tailscale</b> crea una red privada entre tus dispositivos: el celular usa la tarjeta gráfica de casa (Camino A) o un modelo pequeño en una VPS (Camino B).</p></div>
   </div>
 </div></section>
 
 <section id="quadrante"><div class="wrap">
   <span class="chip">Cuadrante</span>
   <h2>Dos preguntas deciden dónde se ejecuta la IA</h2>
-  <p class="sub">¿Los datos pueden salir de tu máquina? ¿El modelo normal rechaza lo que necesitas hacer? Recurre a “sin censura” solo cuando el modelo normal rechace una tarea legítima.</p>
+  <p class="sub">¿El dato NO puede salir de tu equipo? ¿El modelo normal rechaza lo que necesitas hacer? En el script, <code>--dado-sensivel sim</code> significa “no puede salir”. Usa un modelo “sin censura” solo cuando el normal rechace una tarea legítima.</p>
   <div class="quad">
-    <div class="h c"></div><div class="h c">El modelo normal resuelve</div><div class="h c">El modelo normal rechaza</div>
-    <div class="h r">Los datos pueden salir</div>
-    <div class="q"><b>Nube normal</b><span>El asistente al que ya estás suscrito. Publicaciones, resúmenes de artículos públicos, código abierto.</span></div>
-    <div class="q"><b>Nube sin censura</b><span>API o GPU alquilada. Investigación de seguridad en tu laboratorio, aceptando que la consulta pase por un proveedor.</span></div>
-    <div class="h r">Los datos NO pueden salir</div>
+    <div class="h c"></div><div class="h c">El modelo normal lo resuelve</div><div class="h c">El modelo normal lo rechaza</div>
+    <div class="h r">El dato puede salir</div>
+    <div class="q"><b>Nube normal</b><span>El asistente que ya usas. Publicación, resumen de un artículo público, código abierto.</span></div>
+    <div class="q"><b>Nube sin censura</b><span>API o GPU alquilada. Investigación de seguridad en tu laboratorio, aceptando que la solicitud pase por un proveedor.</span></div>
+    <div class="h r">El dato NO puede salir</div>
     <div class="q kit"><b>Local normal</b><span>Exámenes, contratos de clientes, finanzas, registros de la empresa.</span></div>
-    <div class="q kit"><b>Local sin censura</b><span>El registro de un ataque a tu servidor con los comandos reales; preguntas médicas o jurídicas delicadas.</span></div>
+    <div class="q kit"><b>Local sin censura</b><span>El registro de un ataque a tu servidor con los comandos reales; preguntas médicas o legales delicadas.</span></div>
   </div>
 <pre><span class="k">python3 kit/scripts/quadrante.py --dado-sensivel sim --recusa nao</span>
 <span class="c">LOCAL NORMAL
@@ -204,70 +204,74 @@
 </div></section>
 
 <section id="numeros"><div class="wrap">
-  <span class="chip">Cifras medidas · 08/11/2026</span>
-  <h2>El costo de la red privada en velocidad: nada</h2>
-  <p class="sub">La misma pregunta, respuesta de hasta 160 tokens (fragmentos de palabras), medida con <code>checa_local.py</code>. Una lectura cómoda ronda los 10 tokens/s. Los archivos de cada medición están en <code>kit/verificacao/</code>.</p>
+  <span class="chip">Datos medidos · 08/11/2026</span>
+  <h2>¿Cuánto afecta la red privada a la velocidad? Nada</h2>
+  <p class="sub">Equipo de casa: NVIDIA DGX Spark (128 GB de memoria unificada), no una laptop común. Para una laptop sin tarjeta gráfica, la referencia más cercana son las barras grises de la VPS. Misma pregunta, respuesta de hasta 160 tokens (fragmentos de palabra), medidos con <code>checa_local.py</code>. Una lectura cómoda ronda los 10 tokens/s. Los archivos de cada medición están en <code>kit/verificacao/</code>.</p>
   <div class="bars">
     <div class="bar"><div class="l">GPU en casa, local<small>Qwen 3.8 27B sin censura</small></div><div class="t"><i style="width:100%"></i></div><div class="v">17,8 tok/s</div></div>
-    <div class="bar"><div class="l">Camino A · VPS que llama a la GPU de casa por Tailscale<small>Qwen 3.8 27B sin censura</small></div><div class="t"><i style="width:99%"></i></div><div class="v">17,6 tok/s</div></div>
+    <div class="bar"><div class="l">Camino A · VPS usando la GPU de casa por Tailscale<small>Qwen 3.8 27B sin censura</small></div><div class="t"><i style="width:99%"></i></div><div class="v">17,6 tok/s</div></div>
     <div class="bar"><div class="l">GPU en casa, local<small>Qwen 3.8 27B normal</small></div><div class="t"><i style="width:86.5%"></i></div><div class="v">15,4 tok/s</div></div>
     <div class="bar"><div class="l">Camino B · VPS solo con procesador<small>Qwen 3.5 4B sin censura</small></div><div class="t"><i class="cpu" style="width:76.4%"></i></div><div class="v">13,6 tok/s</div></div>
-    <div class="bar"><div class="l">Camino B por la red · GPU de casa que llama a la VPS<small>Qwen 3.5 4B sin censura</small></div><div class="t"><i class="cpu" style="width:71.9%"></i></div><div class="v">12,8 tok/s</div></div>
+    <div class="bar"><div class="l">Camino B por la red · GPU de casa usando la VPS<small>Qwen 3.5 4B sin censura</small></div><div class="t"><i class="cpu" style="width:71.9%"></i></div><div class="v">12,8 tok/s</div></div>
     <div class="bar"><div class="l">Camino B · VPS solo con procesador<small>Qwen 3.5 4B normal</small></div><div class="t"><i class="cpu" style="width:70.8%"></i></div><div class="v">12,6 tok/s</div></div>
     <div class="bar"><div class="l">Camino B · VPS solo con procesador<small>Qwen 3.5 9B sin censura</small></div><div class="t"><i class="cpu" style="width:47.8%"></i></div><div class="v">8,5 tok/s</div></div>
   </div>
   <div class="legend"><span><i style="background:var(--amb)"></i>modelo 27B en la tarjeta gráfica (128 GB de memoria unificada)</span><span><i style="background:var(--mut)"></i>modelo 4B–9B en una VPS de 4 vCPU / 16 GB, sin tarjeta gráfica</span></div>
   <div class="grid g3" style="margin-top:26px">
-    <div class="card"><h3>📶 La red no afecta</h3><p>La GPU de casa respondió a 17,8 tokens/s en la propia máquina y a 17,6 por la red de Tailscale, en el puerto y con el comando que enseña esta guía.</p></div>
-    <div class="card"><h3>⏳ La primera pregunta tarda</h3><p>Cargar el modelo tomó de 16 a 47 s en la VPS. Después permanece 5 minutos en la memoria y responde de inmediato.</p></div>
+    <div class="card"><h3>📶 La red no afecta</h3><p>La GPU de casa respondió a 17,8 tokens/s en el propio equipo y a 17,6 por la red de Tailscale, en el puerto y con el comando que enseña esta guía.</p></div>
+    <div class="card"><h3>⏳ La primera pregunta tarda</h3><p>Cargar el modelo llevó de 16 a 47 s en la VPS. Después permanece 5 minutos en memoria y responde de inmediato.</p></div>
     <div class="card"><h3>🔓 Sin censura no es más lento</h3><p>El modelo sin censura y el normal del mismo tamaño quedaron en el mismo rango de velocidad.</p></div>
   </div>
 </div></section>
 
 <section id="pre"><div class="wrap">
-  <span class="chip">Requisitos</span>
+  <span class="chip">Requisitos previos</span>
   <h2>Qué necesitas</h2>
-  <p class="sub">Todo es gratuito, excepto la VPS del camino B, si eliges ese camino.</p>
+  <p class="sub">Todo es gratuito, excepto la VPS del Camino B, si eliges esa opción.</p>
   <div class="grid g3">
-    <div class="card"><h3>Python 3.10+ y git</h3><p>Los scripts usan solo la biblioteca estándar. Mac y Linux ya los incluyen; en Windows, instálalos desde python.org y git-scm.com. ¿No tienes git? Descarga el <a href="https://github.com/inematds/ia-privada-3-niveis/archive/refs/heads/main.zip">ZIP del kit</a>.</p><pre><span class="k">python3 --version
+    <div class="card"><h3>Python 3.10+ y git</h3><p>Los scripts solo usan la biblioteca estándar. Mac y Linux ya los incluyen; en Windows, instálalos desde python.org y git-scm.com. ¿No tienes git? Descarga el <a href="https://github.com/inematds/ia-privada-3-niveis/archive/refs/heads/main.zip">ZIP del kit (en portugués)</a>.</p><pre><span class="k">python3 --version
 git --version</span></pre></div>
     <div class="card"><h3>Ollama</h3><p>Ejecuta los modelos. En Linux, usa el comando de abajo; en Mac y Windows, el instalador de ollama.com/download.</p><pre><span class="k">curl -fsSL https://ollama.com/install.sh | sh</span></pre></div>
-    <div class="card"><h3>Tailscale (nivel 3)</h3><p>Red privada entre tus dispositivos, gratuita para uso personal. Instálala en casa y en el celular, con la misma cuenta.</p><pre><span class="k">curl -fsSL https://tailscale.com/install.sh | sh</span></pre></div>
+    <div class="card"><h3>Tailscale (nivel 3)</h3><p>Red privada entre tus dispositivos, gratuita para uso personal. Instálala en casa y en el celular con la misma cuenta.</p><pre><span class="k">curl -fsSL https://tailscale.com/install.sh | sh</span></pre></div>
   </div>
 </div></section>
 
 <section id="termos"><div class="wrap">
-  <span class="chip">Palabras de la guía</span>
-  <h2>Ocho términos, una frase cada uno</h2>
+  <span class="chip">Términos de la guía</span>
+  <h2>Los términos de la guía, en una frase cada uno</h2>
   <div class="grid g4" style="margin-top:18px">
-    <div class="card"><h3>Puerto 11434</h3><p>La “ventana” por la que los programas se comunican con Ollama en la computadora.</p></div>
-    <div class="card"><h3>loopback / 127.0.0.1</h3><p>Solo la propia computadora puede verlo. Es el estado seguro.</p></div>
-    <div class="card"><h3>Tailscale / tailnet</h3><p>Red privada solo entre tus dispositivos. “tailnet only” = solo ellos pueden verlo.</p></div>
+    <div class="card"><h3>Puerto 11434</h3><p>La “ventana” por donde los programas se comunican con Ollama en la computadora.</p></div>
+    <div class="card"><h3>loopback / 127.0.0.1</h3><p>Solo la propia computadora puede acceder. Es el estado seguro.</p></div>
+    <div class="card"><h3>Tailscale / tailnet</h3><p>Red privada solo entre tus dispositivos. “tailnet only” = solo ellos pueden acceder.</p></div>
     <div class="card"><h3>funnel</h3><p>Opción de Tailscale que abre el acceso a todo internet. No la uses con Ollama.</p></div>
-    <div class="card"><h3>VPS / vCPU</h3><p>Computadora alquilada en un centro de datos, encendida las 24 h. vCPU = núcleo de su procesador.</p></div>
+    <div class="card"><h3>VPS / vCPU</h3><p>Computadora alquilada en un centro de datos, conectada las 24 h. vCPU = núcleo de su procesador.</p></div>
     <div class="card"><h3>API</h3><p>Usar un modelo que se ejecuta en el servidor de otra empresa y pagar por uso.</p></div>
-    <div class="card"><h3>Memoria unificada</h3><p>Mac (chips M) y algunas máquinas con GPU: la misma memoria sirve al procesador y a la tarjeta gráfica.</p></div>
-    <div class="card"><h3>OLLAMA_HOST=0.0.0.0</h3><p>Configuración que abre Ollama a cualquier red. El kit la señala como “abierta”.</p></div>
+    <div class="card"><h3>Memoria unificada</h3><p>Mac (chips M) y algunos equipos con GPU: la misma memoria sirve al procesador y a la tarjeta gráfica.</p></div>
+    <div class="card"><h3>OLLAMA_HOST=0.0.0.0</h3><p>Configuración que abre Ollama a cualquier red. El kit la marca como “abierto”.</p></div>
+    <div class="card"><h3>abliterated / huihui_ai</h3><p>“Abliterated” = versión sin censura de un modelo abierto. huihui_ai publica esas versiones en la biblioteca de Ollama.</p></div>
+    <div class="card"><h3>4B, 9B, 27B</h3><p>Miles de millones de parámetros: el tamaño del modelo. Uno más grande responde mejor y necesita más memoria.</p></div>
+    <div class="card"><h3>35b-a3b (rápido)</h3><p>Modelo grande que usa solo 3B por palabra (“MoE”): ocupa memoria como uno grande y responde casi a la velocidad de uno pequeño.</p></div>
+    <div class="card"><h3>GPU / sudo</h3><p>GPU = tarjeta gráfica. sudo = ejecutar un comando como administrador en Linux/Mac (te pide la contraseña).</p></div>
   </div>
-  <div class="warn"><b>Windows:</b> usa <code>python</code> en lugar de <code>python3</code>. Los scripts funcionan, pero la comprobación del puerto de <code>checa_local.py</code> es solo para Linux y Mac. Los caminos A y B usan comandos de Linux: en Windows, ejecútalos en la máquina Linux (o en la VPS) y usa Windows solo como dispositivo de acceso.</div>
+  <div class="warn"><b>Windows:</b> usa <code>python</code> en lugar de <code>python3</code>. Los scripts funcionan, pero la comprobación del puerto de <code>checa_local.py</code> solo está disponible para Linux y Mac. Los Caminos A y B usan comandos de Linux: en Windows, ejecútalos en el equipo Linux (o en la VPS) y usa Windows solo como dispositivo de acceso.</div>
 </div></section>
 
 <section id="guia"><div class="wrap">
   <span class="chip">Guía de uso · paso a paso</span>
   <h2>De cero a la IA en el celular</h2>
-  <p class="sub">Ejecuta los comandos desde la carpeta del proyecto. ¿Prefieres que un asistente lo haga por ti? Cada paso tiene un prompt listo en <code>kit/prompts/</code>.</p>
+  <p class="sub">Ejecuta los comandos en la carpeta del proyecto. ¿Prefieres que un asistente lo haga por ti? Cada paso tiene un prompt listo en <code>kit/prompts/</code>.</p>
 
   <div class="step"><div class="b">1</div><div>
     <h3>Descarga el kit y ejecuta las pruebas</h3>
-    <p>Las pruebas no usan internet ni Ollama: solo demuestran que los scripts están bien. Si no tienes git, descarga el ZIP (requisitos) y abre la terminal dentro de la carpeta.</p>
+    <p>Las pruebas no usan internet ni Ollama: solo comprueban que los scripts estén correctos. Si no tienes git, descarga el ZIP (requisitos previos) y abre la terminal dentro de la carpeta.</p>
 <pre><span class="k">git clone https://github.com/inematds/ia-privada-3-niveis.git
 cd ia-privada-3-niveis
 python3 -m unittest discover -s kit/testes -v</span>  <span class="c"># termina con OK</span></pre>
   </div></div>
 
   <div class="step"><div class="b">2</div><div>
-    <h3>Encuentra el modelo adecuado para tu máquina</h3>
-    <p>El script lee la memoria (tarjeta gráfica, memoria unificada de Mac o RAM) y el disco. Muestra dos modelos y el comando para descargarlos, pero no descarga nada por sí solo.</p>
+    <h3>Encuentra el modelo adecuado para tu equipo</h3>
+    <p>El script lee la memoria (tarjeta gráfica, memoria unificada del Mac o RAM) y el disco. Muestra dos modelos y el comando para descargarlos, pero no descarga nada por su cuenta.</p><p class="nota-saida">Los scripts del kit muestran sus mensajes en portugués; el significado de cada línea está explicado en esta página.</p>
 <pre><span class="k">python3 kit/scripts/escolhe_modelo.py</span>
 <span class="c">Memoria: 16.0 GB (RAM / memoria unificada); util para modelo: 14.0 GB
 Disco livre: 80.0 GB
@@ -277,11 +281,12 @@ Melhor local (normal):       Qwen 3.5 9B  ->  ollama pull qwen3.5:9b  (6.6 GB)
 Melhor local (sem censura):  Qwen 3.5 9B  ->  ollama pull huihui_ai/qwen3.5-abliterated:9b  (6.6 GB)</span></pre>
     <div class="tbl"><table>
       <tr><th>Memoria</th><th>Normal</th><th>Sin censura</th><th>Descarga</th></tr>
-      <tr><td>8 GB</td><td><code>qwen3.5:4b</code></td><td><code>huihui_ai/qwen3.5-abliterated:4B</code></td><td>3,3 GB</td></tr>
-      <tr><td>16 GB</td><td><code>qwen3.5:9b</code></td><td><code>huihui_ai/qwen3.5-abliterated:9b</code></td><td>6,6 GB</td></tr>
-      <tr><td>24–64 GB</td><td><code>qwen3.8:27b</code></td><td><code>huihui_ai/Qwen3.8-abliterated:27b</code></td><td>18 GB</td></tr>
-      <tr><td>32 GB o más (alternativa rápida)</td><td><code>qwen3.6:35b-a3b</code></td><td><code>huihui_ai/Qwen3.6-abliterated:35b-a3b</code></td><td>23–24 GB</td></tr>
-      <tr><td>96 GB o más</td><td><code>qwen3.5:122b</code></td><td><code>huihui_ai/qwen3.5-abliterated:122B</code></td><td>81 GB</td></tr>
+      <tr><td>4–5 GB (solo prueba)</td><td><code>qwen3.5:0.8b</code> / <code>qwen3.5:2b-q4_K_M</code></td><td><code>huihui_ai/qwen3.5-abliterated:0.8B</code> / <code>:2B</code></td><td>1–1,9 GB</td></tr>
+      <tr><td>6–9 GB</td><td><code>qwen3.5:4b</code></td><td><code>huihui_ai/qwen3.5-abliterated:4B</code></td><td>3,3 GB</td></tr>
+      <tr><td>10–23 GB</td><td><code>qwen3.5:9b</code></td><td><code>huihui_ai/qwen3.5-abliterated:9b</code></td><td>6,6 GB</td></tr>
+      <tr><td>24–99 GB</td><td><code>qwen3.8:27b</code></td><td><code>huihui_ai/Qwen3.8-abliterated:27b</code></td><td>18 GB</td></tr>
+      <tr><td>30 GB o más (alternativa rápida)</td><td><code>qwen3.6:35b-a3b</code></td><td><code>huihui_ai/Qwen3.6-abliterated:35b-a3b</code></td><td>23–24 GB</td></tr>
+      <tr><td>100 GB o más</td><td><code>qwen3.5:122b</code></td><td><code>huihui_ai/qwen3.5-abliterated:122B</code></td><td>81 GB</td></tr>
       
     </table></div>
   </div></div>
@@ -297,60 +302,67 @@ python3 kit/scripts/checa_local.py --modelo huihui_ai/qwen3.5-abliterated:9b</sp
 
   <div class="step"><div class="b">4</div><div>
     <h3>Conversa</h3>
-    <p>Para salir, escribe <code>/bye</code>. En la terminal, pega el texto del documento en la consulta. ¿Prefieres una ventana? La app de Ollama (Mac y Windows) conversa con los modelos descargados y permite arrastrar archivos. Los modelos normal y sin censura quedan descargados uno junto al otro: para cambiar, solo tienes que llamar al otro por su nombre.</p>
+    <p>Para salir, escribe <code>/bye</code>. En la terminal, pega el texto del documento en la pregunta. ¿Prefieres una ventana? La app de Ollama (Mac y Windows) conversa con los modelos descargados y permite arrastrar archivos. Los modelos normal y sin censura quedan descargados uno al lado del otro: para cambiar, basta con llamar al otro nombre.</p>
 <pre><span class="k">ollama run huihui_ai/qwen3.5-abliterated:9b</span></pre>
+    <p>Documento PDF: conviértelo en texto y envíalo junto con la solicitud. <code>pdftotext</code> viene en el paquete <code>poppler-utils</code> (Linux) o <code>brew install poppler</code> (Mac). Un documento muy largo (decenas de páginas) puede superar el límite de texto del modelo: divídelo en partes.</p>
+<pre><span class="k">pdftotext contrato.pdf contrato.txt
+cat contrato.txt | ollama run huihui_ai/qwen3.5-abliterated:9b "Resuma em 2 linhas: valor, vencimento e multa."</span></pre>
   </div></div>
 
   <div class="step"><div class="b">5</div><div>
     <h3>Camino A: usa la tarjeta gráfica de casa desde cualquier lugar</h3>
-    <p>Con Tailscale conectado, publica Ollama <b>solo</b> en tu red privada. El estado debe decir “tailnet only”. Si aparece “Access denied”, ejecuta una vez <code>sudo tailscale set --operator=$USER</code>.</p>
-<pre><span class="k">tailscale serve --bg --tcp 11434 tcp://127.0.0.1:11434
+    <p>Primero inicia sesión en tu cuenta de Tailscale desde este equipo: en Linux, <code>sudo tailscale up</code> muestra un enlace para abrir en el navegador; en Mac y Windows, la app te pide iniciar sesión al abrirla. Después, publica Ollama <b>solo</b> en tu red privada. El estado debe decir “tailnet only”. Si aparece “Access denied”, ejecuta una vez <code>sudo tailscale set --operator=$USER</code>.</p>
+<pre><span class="k">sudo tailscale up
+tailscale serve --bg --tcp 11434 tcp://127.0.0.1:11434
 tailscale serve status</span>   <span class="c"># debe mostrar "tailnet only"</span>
 <span class="k">tailscale ip -4</span>          <span class="c"># la dirección 100.x.y.z para usar en el celular</span></pre>
-    <p>En el celular o la laptop (con Tailscale en la misma cuenta), usa <code>http://100.x.y.z:11434</code> en cualquier app compatible con Ollama. Para medir desde allí:</p>
+    <p>En el celular, instala la app de Tailscale e inicia sesión con la misma cuenta. Después instala una app que se comunique con Ollama, como <a href="https://github.com/JHubi1/ollama-app" target="_blank" rel="noopener">Ollama App</a> (Android) o <a href="https://github.com/gluonfield/enchanted" target="_blank" rel="noopener">Enchanted</a> (iPhone), e indica como dirección del servidor <code>http://100.x.y.z:11434</code>. En la laptop, esa misma dirección sirve para <code>checa_local.py</code>:</p>
 <pre><span class="k">python3 kit/scripts/checa_local.py --base-url http://100.x.y.z:11434 --modelo huihui_ai/Qwen3.8-abliterated:27b --nome casa-pelo-tailscale</span></pre>
     <p>Para apagarlo: <code>tailscale serve --tcp 11434 off</code>.</p>
   </div></div>
 
   <div class="step"><div class="b">6</div><div>
-    <h3>Camino B: un modelo pequeño encendido las 24 h en una VPS</h3>
-    <p>Para quienes no dejan la computadora encendida. Una VPS común no tiene tarjeta gráfica: hasta 9B, a la velocidad del gráfico de arriba. En una VPS con Ubuntu y 8 GB o más:</p>
+    <h3>Camino B: un modelo pequeño disponible las 24 h en una VPS</h3>
+    <p>Para quienes no dejan una computadora encendida. La VPS común no tiene tarjeta gráfica: hasta 9B, a la velocidad del gráfico de arriba. Contrata una VPS con Ubuntu y 8 GB o más, y abre su terminal (con <code>ssh root@&lt;IP&gt;</code> o desde la terminal web del proveedor). Como root, ejecuta:</p>
 <pre><span class="k">curl -fsSL https://ollama.com/install.sh | sh
 ss -ltn | grep 11434</span>          <span class="c"># solo 127.0.0.1:11434</span>
 <span class="k">curl -fsSL https://tailscale.com/install.sh | sh
 tailscale up</span>                  <span class="c"># abre en el navegador el enlace que aparezca e inicia sesión</span>
 <span class="k">tailscale serve --bg --tcp 11434 tcp://127.0.0.1:11434
-ollama pull huihui_ai/qwen3.5-abliterated:4B</span></pre>
-    <p><b>Prueba de que quedó cerrado:</b> desde tu computadora, <code>http://&lt;IP público de la VPS&gt;:11434</code> debe fallar y <code>http://&lt;IP Tailscale de la VPS&gt;:11434</code> debe responder. En la VPS, <code>python3 kit/scripts/checa_local.py --so-porta</code> muestra <code>tailscale</code>.</p>
+ollama pull huihui_ai/qwen3.5-abliterated:4B
+git clone https://github.com/inematds/ia-privada-3-niveis.git
+cd ia-privada-3-niveis
+python3 kit/scripts/checa_local.py --so-porta</span></pre>
+    <p><b>Prueba de que quedó cerrado:</b> desde tu computadora, <code>http://&lt;IP pública de la VPS&gt;:11434</code> debe fallar y <code>http://&lt;IP de Tailscale de la VPS&gt;:11434</code> debe responder. Con <code>tailscale serve</code> encendido, <code>--so-porta</code> en la VPS muestra <code>tailscale</code>; apagado, muestra <code>loopback</code>. Ambos son seguros; <code>aberto</code> nunca. Si no iniciaste sesión como root, pon <code>sudo</code> antes de <code>tailscale up</code> y <code>tailscale serve</code>.</p>
   </div></div>
 
   <div class="step"><div class="b">7</div><div>
     <h3>Opcional: habla con ella</h3>
-    <p>El kit gratuito <a href="https://inematds.github.io/jarvis-local/guia/es/" target="_blank" rel="noopener">Jarvis Local</a> ya permite conversar por voz 100% localmente. Añade a su estante de cerebros las entradas <code>sem_censura</code> y <code>casa</code> de <code>kit/config/jarvis-cerebros.exemplo.json</code> y di “cambia al cerebro sin censura”. Para la voz necesitas una tarjeta gráfica: en la VPS del camino B, solo texto.</p>
+    <p>El kit gratuito <a href="https://inematds.github.io/jarvis-local/guia/es/" target="_blank" rel="noopener">Jarvis Local</a> ya permite conversar por voz 100% localmente. Añade a su estante de cerebros las entradas <code>sem_censura</code> y <code>casa</code> de <code>kit/config/jarvis-cerebros.exemplo.json</code> y di “cambia al cerebro sin censura”. La voz necesita una tarjeta gráfica: en la VPS del Camino B, solo texto.</p>
   </div></div>
 
   <div class="tbl" style="margin-top:10px"><table>
     <tr><th>Prompt listo</th><th>Qué hace el asistente</th></tr>
     <tr><td><a href="https://github.com/inematds/ia-privada-3-niveis/blob/main/kit/prompts/01-instalar-e-escolher.md" target="_blank" rel="noopener">01 · Instalar y elegir (en portugués)</a></td><td>Instala Ollama con tu aprobación, ejecuta el selector, descarga lo que elijas y lo mide.</td></tr>
-    <tr><td><a href="https://github.com/inematds/ia-privada-3-niveis/blob/main/kit/prompts/02-casa-pelo-tailscale.md" target="_blank" rel="noopener">02 · Casa por Tailscale (en portugués)</a></td><td>Camino A, comprueba que diga “tailnet only” y nunca usa funnel.</td></tr>
-    <tr><td><a href="https://github.com/inematds/ia-privada-3-niveis/blob/main/kit/prompts/03-vps-sempre-ligada.md" target="_blank" rel="noopener">03 · VPS siempre encendida (en portugués)</a></td><td>Camino B, con la prueba de que el puerto público quedó cerrado.</td></tr>
+    <tr><td><a href="https://github.com/inematds/ia-privada-3-niveis/blob/main/kit/prompts/02-casa-pelo-tailscale.md" target="_blank" rel="noopener">02 · Casa por Tailscale (en portugués)</a></td><td>Camino A, comprobando “tailnet only” y sin usar funnel.</td></tr>
+    <tr><td><a href="https://github.com/inematds/ia-privada-3-niveis/blob/main/kit/prompts/03-vps-sempre-ligada.md" target="_blank" rel="noopener">03 · VPS siempre conectada (en portugués)</a></td><td>Camino B, con la prueba de que el puerto público quedó cerrado.</td></tr>
   </table></div>
 </div></section>
 
 <section id="seguranca"><div class="wrap">
   <span class="chip">Seguridad</span>
-  <h2>Sin censura, la responsabilidad pasa a ti</h2>
-  <p class="sub">Un modelo <i>abliterated</i> es un modelo abierto al que le quitaron el reflejo de rechazar. Responde casi todo, por eso las reglas de abajo cumplen la función de freno.</p>
+  <h2>Sin censura, la responsabilidad pasa a ser tuya</h2>
+  <p class="sub">Un modelo <i>abliterated</i> es un modelo abierto al que le quitaron el reflejo de rechazar. Responde casi todo, por eso las reglas de abajo hacen de freno.</p>
   <ul class="rules">
-    <li><b>Tus datos, tus sistemas.</b> Haz pruebas de seguridad solo en lo que es tuyo o en lo que su dueño autorizó por escrito.</li>
-    <li><b>Privado no significa anónimo.</b> Ejecutarlo localmente oculta la consulta a las empresas de IA; no cambia lo que es delito.</li>
-    <li><b>No copies las marcas de otros.</b> Recrear la función de una app para uso propio es estudio; copiar el nombre, el logo y las pantallas para distribuirlos es una infracción.</li>
-    <li><b>Sin rechazo también se equivoca.</b> En salud, derecho y dinero, consulta con un profesional antes de actuar.</li>
-    <li><b>El puerto nunca queda abierto.</b> Ollama no tiene contraseña. Nada de <code>OLLAMA_HOST=0.0.0.0</code>, puertos abiertos en el router o <code>tailscale funnel</code>. <code>checa_local.py --so-porta</code> indica <code>aberto</code> y termina con un error.</li>
-    <li><b>Conversa antes de darle herramientas.</b> Un modelo descargado es código de terceros: primero pruébalo solo conversando, antes de dejarlo leer archivos o ejecutar comandos.</li>
-    <li>El <b>computador de un niño</b> no debe tener un modelo sin censura.</li>
+    <li><b>Tus datos, tus sistemas.</b> Prueba la seguridad solo en lo que te pertenece o en lo que el dueño autorizó por escrito.</li>
+    <li><b>Privado no significa anónimo.</b> Ejecutarlo localmente oculta la solicitud a las empresas de IA; no cambia lo que es delito.</li>
+    <li><b>No copies marcas ajenas.</b> Recrear la función de una app para uso propio es estudio; copiar el nombre, el logo y las pantallas para distribuirlo es una infracción.</li>
+    <li><b>Sin rechazo también se equivoca.</b> En salud, derecho y finanzas, consulta a un profesional antes de actuar.</li>
+    <li><b>El puerto nunca queda abierto.</b> Ollama no tiene contraseña. No uses <code>OLLAMA_HOST=0.0.0.0</code>, ni abras puertos en el router ni uses <code>tailscale funnel</code>. <code>checa_local.py --so-porta</code> marca <code>aberto</code> y termina con un error.</li>
+    <li><b>Conversa antes de darle herramientas.</b> Un modelo descargado es código de terceros: primero pruébalo conversando, antes de dejarlo leer archivos o ejecutar comandos.</li>
+    <li>Los equipos de los <b>niños</b> no deben tener modelos sin censura.</li>
   </ul>
-  <div class="warn">Consulta las reglas completas en <a href="https://github.com/inematds/ia-privada-3-niveis/blob/main/kit/USO-RESPONSAVEL.md" target="_blank" rel="noopener">kit/USO-RESPONSAVEL.md (en portugués)</a>.</div>
+  <div class="warn">Reglas completas en <a href="https://github.com/inematds/ia-privada-3-niveis/blob/main/kit/USO-RESPONSAVEL.md" target="_blank" rel="noopener">kit/USO-RESPONSAVEL.md (en portugués)</a>.</div>
 </div></section>
 
 <footer>

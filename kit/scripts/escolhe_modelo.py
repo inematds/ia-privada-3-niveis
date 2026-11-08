@@ -150,12 +150,14 @@ def texto(r, origem):
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--simular-memoria", type=float, help="memoria em GB (em vez de detectar)")
-    p.add_argument("--simular-disco", type=float, default=500, help="disco livre em GB na simulacao")
+    p.add_argument("--simular-disco", type=float, help="disco livre em GB na simulacao (padrao: o disco real)")
     p.add_argument("--placa-dedicada", action="store_true", help="na simulacao, memoria e de placa de video")
     p.add_argument("--json", action="store_true")
     a = p.parse_args(argv)
     if a.simular_memoria is not None:
-        total, disco, dedicada, origem = a.simular_memoria, a.simular_disco, a.placa_dedicada, "simulado"
+        _, disco_real, _, _ = detectar()
+        disco = a.simular_disco if a.simular_disco is not None else disco_real
+        total, dedicada, origem = a.simular_memoria, a.placa_dedicada, "simulado"
     else:
         total, disco, dedicada, origem = detectar()
     r = escolher(carregar_catalogo(), total, disco, dedicada)
