@@ -1,0 +1,17 @@
+{
+ "quando": "2026-11-08T15:06:58",
+ "maquina": "srv1162715",
+ "base_url": "http://127.0.0.1:11434",
+ "porta_11434": {
+  "enderecos": [
+   "127.0.0.1"
+  ],
+  "estado": "loopback"
+ },
+ "modelo": "huihui_ai/qwen3.5-abliterated:4B",
+ "tokens_por_segundo": 13.55,
+ "tokens_gerados": 73,
+ "carregar_s": 41.9,
+ "total_s": 48.3,
+ "resposta": "Guardar exames médicos num modelo que roda no próprio computador garante a privacidade ao evitar a transmissão dos dados para servidores externos.  \nComo os resultados ficam localmente, só o seu próprio dispositivo manipula a informação, reduzindo riscos de vazamento.  \nAssim, a confidencialidade é preservada e você tem controle total sobre seus próprios dados de saúde."
+}

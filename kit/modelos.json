@@ -1,0 +1,14 @@
+{
+  "conferido_em": "2026-11-08",
+  "fonte": "biblioteca do Ollama (ollama.com/library e ollama.com/huihui_ai), tamanho do download em Q4",
+  "regra": "cabe quando tamanho_gb x 1.2 <= memoria util. Memoria util = memoria total - 2 GB (RAM ou memoria unificada) ou - 0.5 GB (placa de video com memoria propria).",
+  "modelos": [
+    {"nivel": 1, "nome": "Qwen 3.5 0.8B", "normal": "qwen3.5:0.8b", "normal_gb": 1.2, "sem_censura": "huihui_ai/qwen3.5-abliterated:0.8B", "sem_censura_gb": 1.0, "uso": "teste rapido; responde frases curtas"},
+    {"nivel": 2, "nome": "Qwen 3.5 2B", "normal": "qwen3.5:2b-q4_K_M", "normal_gb": 1.9, "sem_censura": "huihui_ai/qwen3.5-abliterated:2B", "sem_censura_gb": 1.9, "uso": "resumo e classificacao simples"},
+    {"nivel": 3, "nome": "Qwen 3.5 4B", "normal": "qwen3.5:4b", "normal_gb": 3.3, "sem_censura": "huihui_ai/qwen3.5-abliterated:4B", "sem_censura_gb": 3.3, "uso": "conversa util em notebook comum ou VPS sem placa de video"},
+    {"nivel": 4, "nome": "Qwen 3.5 9B", "normal": "qwen3.5:9b", "normal_gb": 6.6, "sem_censura": "huihui_ai/qwen3.5-abliterated:9b", "sem_censura_gb": 6.6, "uso": "bom equilibrio para 16 GB"},
+    {"nivel": 5, "nome": "Qwen 3.6 35B-A3B (rapido)", "normal": "qwen3.6:35b-a3b", "normal_gb": 23, "sem_censura": "huihui_ai/Qwen3.6-abliterated:35b-a3b", "sem_censura_gb": 24, "moe": true, "uso": "ativa so 3B por palavra: rapido mesmo com muita memoria"},
+    {"nivel": 6, "nome": "Qwen 3.8 27B", "normal": "qwen3.8:27b", "normal_gb": 18, "sem_censura": "huihui_ai/Qwen3.8-abliterated:27b", "sem_censura_gb": 18, "uso": "o melhor que cabe em 32 GB; codigo e textos longos"},
+    {"nivel": 7, "nome": "Qwen 3.5 122B", "normal": "qwen3.5:122b", "normal_gb": 81, "sem_censura": "huihui_ai/qwen3.5-abliterated:122B", "sem_censura_gb": 81, "uso": "maquina com 128 GB; o mais capaz da lista"}
+  ]
+}

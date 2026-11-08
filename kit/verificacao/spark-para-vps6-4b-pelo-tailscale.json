@@ -1,0 +1,17 @@
+{
+ "quando": "2026-11-08T15:09:35",
+ "maquina": "spark-922b",
+ "base_url": "http://100.80.113.89:11434",
+ "porta_11434": {
+  "enderecos": [
+   "127.0.0.1"
+  ],
+  "estado": "loopback"
+ },
+ "modelo": "huihui_ai/qwen3.5-abliterated:4B",
+ "tokens_por_segundo": 12.76,
+ "tokens_gerados": 88,
+ "carregar_s": 0.0,
+ "total_s": 7.3,
+ "resposta": "Guardar exames médicos num modelo local protege a privacidade porque os dados permanecem na sua máquina, sem precisar de ser enviado para servidores externos.  \nAo não depender de serviços em nuvem, você evita a perda ou vazamento de informações sensíveis durante a transmissão.  \nAlém disso, a armazenagem local reduz a latência e garante que apenas os dados que realmente precisa estejam acessíveis, garantindo maior controle e segurança."
+}

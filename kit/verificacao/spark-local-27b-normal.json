@@ -1,0 +1,17 @@
+{
+ "quando": "2026-11-08T15:06:38",
+ "maquina": "spark-922b",
+ "base_url": "http://127.0.0.1:11434",
+ "porta_11434": {
+  "enderecos": [
+   "127.0.0.1"
+  ],
+  "estado": "loopback"
+ },
+ "modelo": "qwen3.8:27b",
+ "tokens_por_segundo": 15.42,
+ "tokens_gerados": 96,
+ "carregar_s": 0.0,
+ "total_s": 6.8,
+ "resposta": "Armazenar exames médicos em um modelo que roda localmente impede que os dados sensíveis trafeguem pela internet ou alcancem servidores externos de terceiros. Essa abordagem garante que o controle total das informações permaneça exclusivamente nas mãos do usuário, eliminando riscos de vazamentos ou acesso não autorizado por partes remotas. Dessa forma, a privacidade é fortalecida, já que a análise ocorre apenas no dispositivo pessoal, sem exposição a redes de comunicação ou nuvem."
+}

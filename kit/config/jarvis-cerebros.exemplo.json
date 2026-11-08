@@ -1,0 +1,7 @@
+{
+  "_como_usar": "Acrescente estas entradas dentro do bloco \"cerebros\" do config.json do Jarvis Local. Troque os nomes de modelo pelos que o escolhe_modelo.py indicou e o IP pelo da sua maquina no Tailscale (tailscale ip -4).",
+  "cerebros": {
+    "sem_censura": { "base_url": "http://localhost:11434/v1", "modelo": "huihui_ai/qwen3.5-abliterated:9b", "api_key": "ollama", "extra_body": { "reasoning_effort": "none" } },
+    "casa":        { "base_url": "http://100.x.y.z:11434/v1", "modelo": "huihui_ai/Qwen3.8-abliterated:27b", "api_key": "ollama", "extra_body": { "reasoning_effort": "none" } }
+  }
+}

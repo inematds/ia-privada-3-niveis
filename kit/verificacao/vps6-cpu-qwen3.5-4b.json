@@ -1,0 +1,17 @@
+{
+ "quando": "2026-11-08T15:08:18",
+ "maquina": "srv1162715",
+ "base_url": "http://127.0.0.1:11434",
+ "porta_11434": {
+  "enderecos": [
+   "127.0.0.1"
+  ],
+  "estado": "loopback"
+ },
+ "modelo": "qwen3.5:4b",
+ "tokens_por_segundo": 12.64,
+ "tokens_gerados": 100,
+ "carregar_s": 47.2,
+ "total_s": 56.2,
+ "resposta": "Guardar exames médicos localmente no seu próprio computador elimina riscos de vazamento pois evita que os dados saiam da sua rede de segurança e caçam a servidores centralizados. Ao manter a informação em um dispositivo que apenas você controla diretamente, é praticamente impossível para terceiros acessá-los sem o seu conhecimento ou permissão explícita. Essa abordagem reduz drasticamente a superfície de ataque contra ataques cibernéticos, evitando que vulnerabilidades em grandes bancos de dados expõem seus históricos pessoais."
+}

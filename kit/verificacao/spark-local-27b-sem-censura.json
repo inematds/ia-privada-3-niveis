@@ -1,0 +1,17 @@
+{
+ "quando": "2026-11-08T15:09:49",
+ "maquina": "spark-922b",
+ "base_url": "http://127.0.0.1:11434",
+ "porta_11434": {
+  "enderecos": [
+   "127.0.0.1"
+  ],
+  "estado": "loopback"
+ },
+ "modelo": "huihui_ai/Qwen3.8-abliterated:27b",
+ "tokens_por_segundo": 17.78,
+ "tokens_gerados": 84,
+ "carregar_s": 0.0,
+ "total_s": 5.0,
+ "resposta": "Ao processar os dados localmente, o modelo evita o envio das informações sensíveis da internet, eliminando o risco de interceptação ou armazenamento em servidores de terceiros. Dessa forma, os exames permanecem confinados no hardware do usuário, que é o único com acesso físico e digital às informações. Isso garante que a privacidade seja mantida sem depender da segurança externa de nuvens ou provedores de serviço."
+}
