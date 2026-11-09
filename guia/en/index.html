@@ -140,6 +140,7 @@
     <a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a>
   </span>
   <div class="links">
+    <a class="sec" href="#simples">First-time users</a>
     <a class="sec" href="#oque">What it is</a>
     <a class="sec" href="#quadrante">Quadrant</a>
     <a class="sec" href="#numeros">Numbers</a>
@@ -170,6 +171,19 @@
 <section id="resumo" class="resumo"><div class="wrap">
   <span class="chip">In brief</span>
   <p>This is a free kit for running an open AI model on your own computer without sending your data to any company. It is for people who handle sensitive information (medical tests, contracts, finances, logs) or need a model that does not refuse legitimate tasks. One script checks your machine and recommends the best standard and uncensored models that fit. Another measures speed and checks that the port is closed. To use it from anywhere, the kit connects your devices through a private network (Tailscale). You need Python 3.10+, Ollama, and, to use it away from home, a free Tailscale account.</p>
+</div></section>
+
+<section id="simples"><div class="wrap">
+  <span class="chip">For first-time users</span>
+  <h2>Your own ChatGPT, running on your computer</h2>
+  <p class="sub">In simple terms: what it is, what it does, and what it’s like to use every day.</p>
+  <div class="grid g2">
+    <div class="card"><h3>🌐 How it works today</h3><p>When you use ChatGPT or Claude, what you write travels over the internet to a company’s computer, where the answer is generated. Did you paste in a test result, a contract, or your company’s spreadsheet? That text has left your hands.</p></div>
+    <div class="card"><h3>💻 AI on your computer</h3><p>There are free, open AI models you can download as a program. <b>Ollama</b> is the program that runs them. Once downloaded, the AI can answer even without internet, and nothing you ask leaves your computer.</p></div>
+    <div class="card"><h3>🔓 “Uncensored”</h3><p>It’s a version of the same AI that doesn’t refuse to answer. For example, you want to understand an attack on your own website, and the usual AI says, “I can’t help with that.” Since it answers almost anything, you’re responsible for how you use it (see <a href="#seguranca">Security</a>).</p></div>
+    <div class="card"><h3>📱 On your phone, from anywhere</h3><p><b>Tailscale</b> creates a private tunnel between your phone and your home computer. You ask a question on your phone while you’re out, and your home computer answers. No one outside can see this tunnel.</p></div>
+  </div>
+  <div class="card" style="margin-top:18px"><h3>🖥️ What if I don’t leave my computer on?</h3><p>You can rent a computer in a data center that stays on 24 hours a day: this is called a <b>VPS</b>. It doesn’t have a graphics card, so it runs a smaller AI, but still fast enough for reading (about 13 word pieces per second in our measurements). The Tailscale tunnel works the same way: your phone connects to the VPS, and its port stays closed to the rest of the internet.</p></div>
 </div></section>
 
 <section id="oque"><div class="wrap">
